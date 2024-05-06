@@ -38,7 +38,6 @@ class State:
         CURSOR.execute(sql)
         CONN.commit()
 
-
     def save(self):
         sql = """
             INSERT INTO states (name)
@@ -50,14 +49,12 @@ class State:
         self.id = CURSOR.lastrowid
         type(self).all[self.id] = self
 
-
     @classmethod
     def create(cls, name):
         state = cls(name)
         state.save()
         return state
         
-
     def update(self):
         sql = """
             UPDATE states
@@ -66,7 +63,6 @@ class State:
         """
         CURSOR.execute(sql, (self.name))
         CONN.commit()
-
 
     def delete(self):
         sql = """
@@ -79,7 +75,6 @@ class State:
         del type(self).all[self.id]
         self.id = None
 
-
     @classmethod
     def instance_from_db(cls, row):
         state = cls.all.get(row[0])
@@ -91,7 +86,6 @@ class State:
             cls.all[state.id] = state
         return state
 
-
     @classmethod
     def get_all(cls):
         sql = """
@@ -100,7 +94,6 @@ class State:
         """
         rows = CURSOR.execute(sql).fetchall()
         return [cls.instance_from_db(row) for row in rows]
-
 
     @classmethod
     def find_by_id(cls, id):

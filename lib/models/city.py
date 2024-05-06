@@ -81,14 +81,12 @@ class City:
         self.id = CURSOR.lastrowid
         type(self).all[self.id] = self
 
-
     @classmethod
     def create(cls, name, attraction, state_id):
         state = state_id
         city = cls(name, attraction, state_id)
         city.save()
         return city
-        
 
     def update(self):
         sql = """
@@ -100,7 +98,6 @@ class City:
                              self.state_id, self.id))
         CONN.commit()
 
-
     def delete(self):
         sql = """
             DELETE FROM cities
@@ -111,7 +108,6 @@ class City:
 
         del type(self).all[self.id]
         self.id = None
-
 
     @classmethod
     def instance_from_db(cls, row):
@@ -126,7 +122,6 @@ class City:
             cls.all [city.id] = city
         return city
 
-
     @classmethod
     def get_all(cls):
         sql = """
@@ -135,7 +130,6 @@ class City:
         """
         rows = CURSOR.execute(sql).fetchall()
         return [cls.instance_from_db(row) for row in rows]
-
 
     @classmethod
     def find_by_id(cls, id):

@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
 # lib/debug.py
-
 from models.__init__ import CONN, CURSOR
 from models.state import State
 from models.city import City
-
 
 def reset_database():
     City.drop_table()
@@ -23,5 +21,3 @@ def reset_database():
     City.create("Maui", "Sea Turtle Tour", hawaii.id)
 
 reset_database()
-
-# breakpoint()

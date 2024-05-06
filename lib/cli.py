@@ -62,6 +62,5 @@ def sub_menu(state):
     print("2. Delete a city")
 
 
-
 if __name__ == "__main__":
     main()

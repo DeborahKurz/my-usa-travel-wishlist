@@ -65,7 +65,6 @@ def add_city(state):
     except Exception as exc:
         print("Oh no! We ran into an error while saving your city: ", exc)
 
-#make sure lines don't exceed 75
 def delete_city(state):
     cities = City.get_all()
     city_list = [city for city in cities if city.state_id == state.id]
