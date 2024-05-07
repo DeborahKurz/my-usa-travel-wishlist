@@ -105,5 +105,18 @@ class State:
         row = CURSOR.execute(sql, (id,)).fetchone()
         return [cls.instance_from_db(row) if row else None]
     
-    def cities(self):
-        pass
+    def cities(self): #Gets all cities in this State
+       from models.city import City
+       breakpoint()
+       sql = """
+            SELECT *
+            FROM cities
+            WHERE state_id = ?
+        """
+       rows = CURSOR.execute(sql ,(self.id,)).fetchall()
+       return [City.instance_from_db(row) for row in rows]
+    
+    #    city_list = City.get_all()
+    #    breakpoint()
+    #    return [city for city in city_list if city.state_id == cls.id]
+    

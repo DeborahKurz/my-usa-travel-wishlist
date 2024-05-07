@@ -24,12 +24,14 @@ def main():
         elif choice == "2":
             add_state()
         elif choice == "3":
+            list_states()
             state = choose_state()
+            cities_loop(state)
             cities_loop(state)
         elif choice == "4":
             delete_state()
         else:
-            print("Invalid choice")
+            print("Oops... We don't know what to do with that choice. \n Please select a number based on the options below")
 
 def cities_loop(state):
     list_cities(state)
@@ -38,28 +40,31 @@ def cities_loop(state):
     if choice == "0":
         main()
     elif choice == "1":
+        list_cities(state)
         add_city(state)
     elif choice == "2":
         delete_city(state)
+        cities_loop(state)
     else:
         print("Invalid choice")
 
-
 def menu():
     separator()
-    print("Please select an option:")
-    print("0. Exit the program")
-    print("1. List all saved U.S. States")
+    print("Save & Manage your U.S.A travel wishlist!")
+    print("------------------------------------------------------------")
+    print("You are in your U.S.A States Menu. Please select an option below: \n")
+    print("1. See all saved U.S. States")
     print("2. Add a new U.S. State")
-    print("3. View details of a State")
+    print("3. View a State's details")
     print("4. Delete a State")
+    print("0. Exit this program")
 
 def sub_menu(state):
     separator()
-    print(f'Please select an option:')
-    print("0. Return to the main menu")
+    print(f"You are in the 'Cities' Menu. Please select an option below: \n")
     print("1. Add a new city")
     print("2. Delete a city")
+    print("0. Return to the 'States' Menu")
 
 
 if __name__ == "__main__":

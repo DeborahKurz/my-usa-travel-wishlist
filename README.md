@@ -1,9 +1,15 @@
 # Phase 3 CLI+ORM Project Template
+## CLI Scripts Explaination:
+## Tables:
+States Table:
+| id | name |
+| ----------- | ----------- |
+|id integer | State name |
 
-## Learning Goals
-
-- Discuss the basic directory structure of a CLI.
-- Outline the first steps in building a CLI.
+Cities Table:
+| id | name | attraction | state_id (foreign key) |
+| ----------- | ----------- | ----------- | ----------- |
+|id integer | State name | Attraction | Corresponding State id |
 
 ---
 

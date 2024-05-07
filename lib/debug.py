@@ -20,4 +20,4 @@ def reset_database():
     City.create("Maui", "Scenic Drive", hawaii.id)
     City.create("Maui", "Sea Turtle Tour", hawaii.id)
 
-reset_database()
+breakpoint()
