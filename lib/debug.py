@@ -14,7 +14,7 @@ def reset_database():
     florida = State.create("Florida")
     hawaii = State.create("Hawaii")
     City.create("Denver", "Museum Of Natural History", colorado.id)
-    City.create("Dinosaur", "Dinosaur National Monument", colorado.id)
+    City.create("Morrison", "Red Rocks Amphitheater", colorado.id)
     City.create("Marathon", "Dolphin Research Center", florida.id)
     City.create("Key West", "Mile Marker 0", florida.id)
     City.create("Maui", "Scenic Drive", hawaii.id)
