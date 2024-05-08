@@ -29,11 +29,6 @@ def delete_state():
         City.delete(city)
     State.delete(state)
 
-
-    # cities = City.get_all()
-    # breakpoint()
-    # return [City.delete(city) for city in cities if city.state_id == state.id]
-
 def add_state():
     new_state = input("\nWhat State do you want to add to your travel list?: \n")
     if isinstance(new_state, str) and len(new_state):

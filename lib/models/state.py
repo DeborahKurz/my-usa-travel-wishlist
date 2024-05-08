@@ -115,8 +115,3 @@ class State:
         """
        rows = CURSOR.execute(sql ,(self.id,)).fetchall()
        return [City.instance_from_db(row) for row in rows]
-    
-    #    city_list = City.get_all()
-    #    breakpoint()
-    #    return [city for city in city_list if city.state_id == cls.id]
-    
