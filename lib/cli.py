@@ -24,16 +24,18 @@ def main():
         elif choice == "2":
             add_state()
         elif choice == "3":
-            list_states()
             state = choose_state()
             cities_loop(state)
             cities_loop(state)
         elif choice == "4":
+            list_states()
             delete_state()
         else:
-            print("Oops... We don't know what to do with that choice. \n Please select a number based on the options below")
+            print("Oops... We don't know what to do with that choice. \n Please select a number based on the options.")
 
 def cities_loop(state):
+    separator()
+    print(f'You are in {state.name}! (Or atleast in your {state.name} Menu...)\n')
     list_cities(state)
     sub_menu(state)
     choice = input("> ")
@@ -42,7 +44,9 @@ def cities_loop(state):
     elif choice == "1":
         list_cities(state)
         add_city(state)
+        cities_loop(state)
     elif choice == "2":
+        list_cities(state)
         delete_city(state)
         cities_loop(state)
     else:
@@ -61,7 +65,7 @@ def menu():
 
 def sub_menu(state):
     separator()
-    print(f"You are in the 'Cities' Menu. Please select an option below: \n")
+    print(f"Please select an option: \n")
     print("1. Add a new city")
     print("2. Delete a city")
     print("0. Return to the 'States' Menu")

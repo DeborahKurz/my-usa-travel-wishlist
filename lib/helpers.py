@@ -17,9 +17,15 @@ def list_states():
 
 def choose_state():
     states = State.get_all()
-    chosen_state = input("\nEnter the number corresponding to the State you would like to view: \n")
-    state = states[int(chosen_state) -1]
-    return state
+    if len(states) >0:
+        list_states()
+        chosen_state = input("\nEnter the number corresponding to the State you would like to view: \n")
+        state = states[int(chosen_state) -1]
+        return state
+    else:
+        print("For starters: Think about what place you've always wanted to visit.")
+
+
 
 def delete_state():
     states = State.get_all()
@@ -28,6 +34,7 @@ def delete_state():
     for city in state.cities():
         City.delete(city)
     State.delete(state)
+    print("\nYour States have been updated.")
 
 def add_state():
     new_state = input("\nWhat State do you want to add to your travel list?: \n")
@@ -43,10 +50,8 @@ def add_state():
 def list_cities(state):
     cities = City.get_all()
     city_list = [city for city in cities if city.state_id == state.id]
-    separator()
-    print(f'You are in {state.name}! (Or atleast in your {state.name} Menu...)\n')
     if len(city_list) > 0:
-        print("Your cities include:")
+        print("\nYour cities include:")
         for i, city in enumerate(city_list, start=1):
             print(f'{i}. {city.name}: {city.attraction}')
     else:
