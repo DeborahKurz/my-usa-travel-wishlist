@@ -79,15 +79,16 @@ In order to present cleaner code, the user view was broken into two files:
 #### cli.py:
 This file gives you the menus that are visible in the CLI and calls methods in `helpers.py` (which call methods that handle SQL in our models).
 **`menu()` and `main()`** work together as the main menu (the one we see when we start the app in our CLI). They include the following options:
-    1. See all saved U.S. States (this allows you to see all the States they ahve added to the wishlist)
-    2. Add a new U.S. State (this lets you add a new State to your wishlist)
-    3. View a State's details (this asks you to choose a State and then shows you the details of that state which include the cities you have added and notes on what specifically you want to see/do in each city. Under the hood, this option will take you to the "city menu" described below)
-    4. Delete a State (this option is used to delete a State and its corresponding cities from your wishlist)
-    5. Exit the program (this is pretty self explainitory: when you are done adding to or updating your wishlist, you can select this option to exit the program)
+1. See all saved U.S. States (this allows you to see all the States they ahve added to the wishlist)
+2. Add a new U.S. State (this lets you add a new State to your wishlist)
+3. View a State's details (this asks you to choose a State and then shows you the details of that state which include the cities you have added and notes on what specifically you want to see/do in each city. Under the hood, this option will take you to the "city menu" described below)
+4. Delete a State (this option is used to delete a State and its corresponding cities from your wishlist)
+5. Exit the program (this is pretty self explainitory: when you are done adding to or updating your wishlist, you can select this option to exit the program)
+
 **`sub_menu()` and `cities_loop()`** work together to create a second menu designed specifically for handling your saved cities. This menu includes the following options:
-    1. Add a new city (this allows you to add a new city to the State you are currently in)
-    2. Delete a city (this lets you to remove a city from your wishlist)
-    3. Return to the 'States' Menu (this is how you return to the "main menu")
+1. Add a new city (this allows you to add a new city to the State you are currently in)
+2. Delete a city (this lets you to remove a city from your wishlist)
+3. Return to the 'States' Menu (this is how you return to the "main menu")
 
 `main()` and `cities_loop()` call methods that were placed in the `helpers.py` file in order to make cleaner code.
 
