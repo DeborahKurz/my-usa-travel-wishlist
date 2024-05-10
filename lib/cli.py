@@ -26,7 +26,6 @@ def main():
         elif choice == "3":
             state = choose_state()
             cities_loop(state)
-            # cities_loop(state)
         elif choice == "4":
             list_states()
             delete_state()

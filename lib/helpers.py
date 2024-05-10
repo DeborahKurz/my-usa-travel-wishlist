@@ -17,7 +17,7 @@ def list_states():
 
 def choose_state():
     states = State.get_all()
-    if len(states) >0:
+    if len(states) > 0:
         list_states()
         chosen_state = input("\nEnter the number corresponding to the State you would like to view: \n")
         state = states[int(chosen_state) -1]
@@ -27,12 +27,13 @@ def choose_state():
 
 def delete_state():
     states = State.get_all()
-    chosen_state = input("\nEnter the number corresponding to the State you would like to delete: \n")
-    state = states[int(chosen_state) -1]
-    for city in state.cities():
-        City.delete(city)
-    State.delete(state)
-    print("\nYour States have been updated.")
+    if len(states) > 0:
+        chosen_state = input("\nEnter the number corresponding to the State you would like to delete: \n")
+        state = states[int(chosen_state) -1]
+        for city in state.cities():
+            City.delete(city)
+        State.delete(state)
+        print("\nYour States have been updated.")
 
 def add_state():
     new_state = input("\nWhat State do you want to add to your travel list?: \n")
@@ -53,7 +54,7 @@ def list_cities(state):
         for i, city in enumerate(city_list, start=1):
             print(f'{i}. {city.name}: {city.attraction}')
     else:
-        print("Please add a city!")
+        print("\nPlease add a city to your list to get started.")
 
 def add_city(state):
     state_id = state.id
@@ -67,11 +68,14 @@ def add_city(state):
 
 def delete_city(state):
     cities = City.get_all()
-    city_list = [city for city in cities if city.state_id == state.id]
-    chosen_city = int(input("\nEnter the number corresponding to the City you would like to delete: \n"))
-    city = city_list[int(chosen_city) -1]
-    City.delete(city)
-    print("\nYour list has been updated.")
+    if len(cities) > 0:
+        city_list = [city for city in cities if city.state_id == state.id]
+        chosen_city = int(input("\nEnter the number corresponding to the City you would like to delete: \n"))
+        city = city_list[int(chosen_city) -1]
+        City.delete(city)
+        print("\nYour list has been updated.")
+    # else:
+    #     print("Please add a city to get started.")
     
 def separator():
     print("\n************************************************************\n")
