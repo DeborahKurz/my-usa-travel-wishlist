@@ -23,7 +23,7 @@ def choose_state():
         state = states[int(chosen_state) -1]
         return state
     else:
-        print("For starters: Think about what place you've always wanted to visit.")
+        print("\nPlease add a State.")
 
 def delete_state():
     states = State.get_all()
