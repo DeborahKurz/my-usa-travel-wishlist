@@ -139,7 +139,8 @@ In the `City` class, four instance attributes are initialized: `id` (the primary
 9. `find_by_id()`: A class method that searches our cities table's primary keys for a row that matches. It then returns the row as an object.
 
 ### debug.py
-`debug.py` holds seed data in `reset_database()`. `reset_database()` should NOT be called if you have added data into this app already (`reset_database()` will delete everything in the database and seed the database).
+To start from an empty database (or to reset your database), use the `empty_database` in `debug.py`. NOTE: This should NOT be called if you have added data into this app already (`empty_database` will delete everything in the database).
+`debug.py` also holds seed data in `seed_database()`. `seed_database()` should NOT be called if you have added data into this app already (`seed_database()` will delete everything in the database and seed the database).
 You can enter into breakpoint in this file by running the following command in your console:
 ```console
     python lib/debug.py

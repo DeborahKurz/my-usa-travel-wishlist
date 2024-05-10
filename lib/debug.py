@@ -4,12 +4,18 @@ from models.__init__ import CONN, CURSOR
 from models.state import State
 from models.city import City
 
-def reset_database():
+def empty_database():
     City.drop_table()
     State.drop_table()
     State.create_table()
     City.create_table()
-    #seed data
+
+def seed_database():
+    City.drop_table()
+    State.drop_table()
+    State.create_table()
+    City.create_table()
+    
     colorado = State.create("Colorado")
     florida = State.create("Florida")
     hawaii = State.create("Hawaii")

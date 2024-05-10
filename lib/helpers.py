@@ -25,8 +25,6 @@ def choose_state():
     else:
         print("For starters: Think about what place you've always wanted to visit.")
 
-
-
 def delete_state():
     states = State.get_all()
     chosen_state = input("\nEnter the number corresponding to the State you would like to delete: \n")
